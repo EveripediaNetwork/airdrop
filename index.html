@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IQ Snapshot Check</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+
+<body class="container">
+
+<div class="text-center">
+    <img src="https://epcdn-vz.azureedge.net/static/images/everipedia_logo_medium.png">
+</div>
+<h1 class="text-center">Check Your IQ Balance</h1>
+
+<div class="form-group mt-5">
+    <label>EOS Public Key:</label>
+    <input class="form-control" id="EOSpubkey">
+</div>
+
+<div class="form-group">
+    <button class="btn btn-primary" onclick="queryBalance()">View Balance</button>
+</div>
+
+<hr>
+
+<p id="snapshot-response" class="lead"></p>
+
+<script>
+
+function queryBalance () {
+    var EOSpubkey = document.getElementById('EOSpubkey').value;
+    fetch(`http://localhost:5000/balance/${EOSpubkey}`)
+        .then(function (response) {
+            return response.text()
+        })
+        .then(function (balance) {
+            var text = `You will receive <span class="text-info">${balance}</span> IQ in the airdrop`;
+            document.getElementById('snapshot-response').innerHTML = text;
+        })
+        .catch(function (error) {
+            var text = `<span class="text-danger">Your key does not exist in the snapshot</span>`;
+            document.getElementById('snapshot-response').innerHTML = text;
+        });
+}
+</script>
+
+</body>
+
+</html>
