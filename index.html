@@ -30,7 +30,7 @@
 
 function queryBalance () {
     var EOSpubkey = document.getElementById('EOSpubkey').value;
-    fetch(`http://104.42.174.144:5000/balance/${EOSpubkey}`)
+    fetch(`https://balanceserver.liberteos.com:5000/balance/${EOSpubkey}`)
         .then(function (response) {
             return response.text()
         })
