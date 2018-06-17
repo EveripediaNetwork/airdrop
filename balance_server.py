@@ -14,3 +14,7 @@ def balance(EOSpubkey):
     resp = Response(snapshot[EOSpubkey])
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
+
+if __name__ == '__main__':
+    context = ('certs/cert.pem', 'certs/privkey.pem')
+    app.run(host="0.0.0.0", port="5000", debug=False, ssl_context=context)
