@@ -30,7 +30,7 @@
 
 function queryBalance () {
     document.getElementById('view-balance-btn').disabled = true;
-    var EOSpubkey = document.getElementById('EOSpubkey').value;
+    var EOSpubkey = document.getElementById('EOSpubkey').value.trim();
     fetch(`https://balanceserver.liberteos.com:5000/balance/${EOSpubkey}`)
         .then(function (response) {
             if (!response.ok) {
