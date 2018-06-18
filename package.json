@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/EveripediaNetwork/airdrop#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
   }
 }
