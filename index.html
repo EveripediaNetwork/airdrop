@@ -19,7 +19,7 @@
 </div>
 
 <div class="form-group">
-    <button class="btn btn-primary" onclick="queryBalance()">View Balance</button>
+    <button id="view-balance-btn" class="btn btn-primary" onclick="queryBalance()">View Balance</button>
 </div>
 
 <hr>
@@ -29,6 +29,7 @@
 <script>
 
 function queryBalance () {
+    document.getElementById('view-balance-btn').disabled = true;
     var EOSpubkey = document.getElementById('EOSpubkey').value;
     fetch(`https://balanceserver.liberteos.com:5000/balance/${EOSpubkey}`)
         .then(function (response) {
@@ -40,10 +41,12 @@ function queryBalance () {
         .then(function (balance) {
             var text = `You will receive <span class="text-info">${balance}</span> IQ in the airdrop`;
             document.getElementById('snapshot-response').innerHTML = text;
+            document.getElementById('view-balance-btn').disabled = false;
         })
         .catch(function (error) {
             var text = `<span class="text-danger">Whoops! Something's wrong. (Contact @Romiezzo on Telegram.)</span>`;
             document.getElementById('snapshot-response').innerHTML = text;
+            document.getElementById('view-balance-btn').disabled = false;
         });
 }
 </script>
