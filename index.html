@@ -32,6 +32,9 @@ function queryBalance () {
     var EOSpubkey = document.getElementById('EOSpubkey').value;
     fetch(`https://balanceserver.liberteos.com:5000/balance/${EOSpubkey}`)
         .then(function (response) {
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
             return response.text()
         })
         .then(function (balance) {
