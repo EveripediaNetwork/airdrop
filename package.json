@@ -1,0 +1,24 @@
+{
+  "name": "airdrop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node balance_server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EveripediaNetwork/airdrop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EveripediaNetwork/airdrop/issues"
+  },
+  "homepage": "https://github.com/EveripediaNetwork/airdrop#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
