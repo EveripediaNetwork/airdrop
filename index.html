@@ -39,7 +39,7 @@ function queryBalance () {
             document.getElementById('snapshot-response').innerHTML = text;
         })
         .catch(function (error) {
-            var text = `<span class="text-danger">Your key does not exist in the snapshot</span>`;
+            var text = `<span class="text-danger">Whoops! Something's wrong. (Contact @Romiezzo on Telegram.)</span>`;
             document.getElementById('snapshot-response').innerHTML = text;
         });
 }
