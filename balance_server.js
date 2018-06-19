@@ -10,7 +10,10 @@ var csv = fs.readFileSync('iq_snapshot.csv', 'ascii');
 var lines = csv.split('\n');
 lines.slice(1).forEach(function (line) {
     var cols = line.split(',');
-    snapshot[cols[2]] = cols[4];
+    if (snapshot[cols[2]]) // account for duplicate public keys
+        snapshot[cols[2]] += cols[4]; 
+    else
+        snapshot[cols[2]] = cols[4];
 });
 
 // Logging
