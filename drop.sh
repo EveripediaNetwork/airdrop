@@ -1,4 +1,4 @@
-SYMBOL="CCTP"
+SYMBOL="CCTT"
 
 echo "Creating token..."
 CREATED=$(cleos get table everipediaiq $SYMBOL stat | grep $SYMBOL)
@@ -17,8 +17,8 @@ else
     echo "Token already issued. Skipping issue"
 fi
 
-for line in $(head -1000 account_balances.csv); do
-    ACCOUNT=$(echo $line | tr "," "\n" | head -1)
+for line in $(tail +2 iq_snapshot.csv | head -1000); do
+    ACCOUNT=$(echo $line | tr "," "\n" | head -2 | tail -1)
     AMOUNT=$(echo $line | tr "," "\n" | tail -1)
     CURRENT_BALANCE=$(cleos get table everipediaiq $ACCOUNT accounts | grep $SYMBOL) 
     if [[ -z $CURRENT_BALANCE ]]; then
