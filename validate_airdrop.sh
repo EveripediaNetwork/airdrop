@@ -1,6 +1,6 @@
 SYMBOL="DRYC"
 ISSUER="iqairdropper"
-VALIDATIONS=100
+VALIDATIONS=1000
 
 NUM_LINES=$(wc -l iq_snapshot.csv | awk '{print $1}')
 FAIL_FLAG=false

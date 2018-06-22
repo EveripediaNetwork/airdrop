@@ -74,3 +74,14 @@ The airdrop consumes the following EOS system resources. Make sure you have enou
 
 ![Airdrop Analytics](img/airdrop_analytics.png)
 
+## Validating the Airdrop
+
+Once you have completed the airdrop, you can validate the account balances with the `validate_airdrop.sh` script. Modify the configs at the top of the script:
+
+```bash
+SYMBOL="DRYC"
+ISSUER="iqairdropper"
+VALIDATIONS=1000
+```
+
+The `SYMBOL` and `ISSUER` should match the configs from `airdrop.sh`. The script runs validations in a loop. Each validation consists of selecting a random account and verifying its balance against the snapshot. The script can execute about 50 validations per second. Using more validations than the default is recommended but will be slow.
