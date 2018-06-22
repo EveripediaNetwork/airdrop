@@ -85,3 +85,4 @@ VALIDATIONS=1000
 ```
 
 The `SYMBOL` and `ISSUER` should match the configs from `airdrop.sh`. The script runs validations in a loop. Each validation consists of selecting a random account and verifying its balance against the snapshot. The script can execute about 50 validations per second. Using more validations than the default is recommended but will be slow.
+
