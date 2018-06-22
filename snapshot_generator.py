@@ -17,7 +17,7 @@ with open('whitelist.txt', 'r') as f:
 blacklist = [line.strip() for line in blacklist.split('\n') if line is not '' and line[0] is not '#']
 whitelist = [line.strip() for line in whitelist.split('\n') if line is not '' and line[0] is not '#']
 intersection = [pubkey for pubkey in whitelist if pubkey in blacklist]
-assert len(intersection) == 0 # no keys in the whitelist should be in the blacklist
+assert len(intersection) == 0, "No keys in the whitelist should be in the blacklist: {0}".format(intersection)
 df = df[~df[2].isin(blacklist)]
 
 # Decimal precision

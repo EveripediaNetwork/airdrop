@@ -2,6 +2,7 @@
 
 SYMBOL="DRYB"
 ISSUER="iqairdropper"
+SNAPSHOT_FILE="iq_snapshot.csv"
 
 echo "Creating token..."
 CREATED=$(cleos get table $ISSUER $SYMBOL stat | grep $SYMBOL)
@@ -20,7 +21,7 @@ else
     echo "Token already issued. Skipping issue"
 fi
 
-for line in $(cat iq_snapshot.csv); do
+for line in $(cat $SNAPSHOT_FILE); do
     ACCOUNT=$(echo $line | tr "," "\n" | head -2 | tail -1)
     AMOUNT=$(echo $line | tr "," "\n" | tail -1)
     CURRENT_BALANCE=$(cleos get table $ISSUER $ACCOUNT accounts | grep $SYMBOL) 
