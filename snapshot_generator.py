@@ -12,7 +12,12 @@ df[4] = df[3] * TOKEN_MULTIPLIER
 # Blacklist 
 with open('blacklist.txt', 'r') as f:
     blacklist = f.read()
+with open('whitelist.txt', 'r') as f:
+    whitelist = f.read()
 blacklist = [line.strip() for line in blacklist.split('\n') if line is not '' and line[0] is not '#']
+whitelist = [line.strip() for line in whitelist.split('\n') if line is not '' and line[0] is not '#']
+intersection = [pubkey for pubkey in whitelist if pubkey in blacklist]
+assert len(intersection) == 0 # no keys in the whitelist should be in the blacklist
 df = df[~df[2].isin(blacklist)]
 
 # Decimal precision
