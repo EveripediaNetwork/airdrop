@@ -68,7 +68,7 @@ To airdrop:
 ./airdrop.sh
 ```
 
-The airdrop will take ~2 hours. Since it is a long running script, a systemd service file (`airdrop.service`) is included in the repo for convenience. This will allow you to safely run the airdrop in the background. 
+The airdrop will take ~2 hours, so I would recommend using systemd or some other tool to run the airdrop in the background.
 
 The airdrop consumes the following EOS system resources. Make sure you have enough EOS staked for RAM, NET, and CPU before airdropping:
 

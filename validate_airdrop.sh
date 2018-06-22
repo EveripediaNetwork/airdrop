@@ -1,9 +1,10 @@
-SYMBOL="DRYB"
+SYMBOL="DRYC"
 ISSUER="iqairdropper"
+VALIDATIONS=100
 
 NUM_LINES=$(wc -l iq_snapshot.csv | awk '{print $1}')
 FAIL_FLAG=false
-for i in `seq 1 1000`; do 
+for i in `seq 1 $VALIDATIONS`; do 
     RAND=$(openssl rand 4 | od -DAn)
     RAND=$((RAND % $NUM_LINES))
     LINE=$(sed "${RAND}q;d" iq_snapshot.csv)
@@ -12,7 +13,7 @@ for i in `seq 1 1000`; do
     CURRENT_BALANCE=$(cleos get table $ISSUER $ACCOUNT accounts | grep $SYMBOL | grep -Eo '[0-9]+\.[0-9]+')
     #echo "$ACCOUNT $AMOUNT $CURRENT_BALANCE"
     if [ "$AMOUNT" != "$CURRENT_BALANCE" ]; then
-        echo "$ACCOUNT failed. Should have $AMOUNT. Has $CURRENT_BALANCE"
+        echo "$ACCOUNT failed. Should have $AMOUNT $SYMBOL"
         FAIL_FLAG=true
     fi
 done

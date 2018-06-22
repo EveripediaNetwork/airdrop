@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SYMBOL="DRYB"
+SYMBOL="DRYD"
 ISSUER="iqairdropper"
 SNAPSHOT_FILE="iq_snapshot.csv"
 
