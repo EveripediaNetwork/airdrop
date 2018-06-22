@@ -72,7 +72,7 @@ The airdrop will take ~2 hours, so I would recommend using systemd or some other
 
 The airdrop consumes the following EOS system resources. Make sure you have enough EOS staked for RAM, NET, and CPU before airdropping:
 
-![Airdrop Analytics](img/airdrop_analytics.png)
+![Airdrop Analytics](img/airdrop_analytics.jpg)
 
 ## Validating the Airdrop
 
