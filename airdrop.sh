@@ -20,7 +20,7 @@ else
     echo "Token already issued. Skipping issue"
 fi
 
-for line in $(tail +2 iq_snapshot.csv); do
+for line in $(cat iq_snapshot.csv); do
     ACCOUNT=$(echo $line | tr "," "\n" | head -2 | tail -1)
     AMOUNT=$(echo $line | tr "," "\n" | tail -1)
     CURRENT_BALANCE=$(cleos get table $ISSUER $ACCOUNT accounts | grep $SYMBOL) 
