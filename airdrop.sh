@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SYMBOL="DRYC"
-ISSUER="iqairdropper"
+SYMBOL="IQ"
+ISSUER="everipediaiq"
 SNAPSHOT_FILE="iq_snapshot.csv"
 
 echo "Creating token..."
