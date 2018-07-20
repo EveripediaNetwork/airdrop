@@ -42,8 +42,7 @@ app.get('/iq/outstanding_supply', (req, res) => {
     res.send("10000000000.000");
 });
 
-//https.createServer({
-//    key: fs.readFileSync('certs/privkey.pem'),
-//    cert: fs.readFileSync('certs/cert.pem')
-//}, app).listen(5000, '0.0.0.0');
-app.listen(5000);
+https.createServer({
+    key: fs.readFileSync('certs/privkey.pem'),
+    cert: fs.readFileSync('certs/cert.pem')
+}, app).listen(5000, '0.0.0.0');
